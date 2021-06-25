@@ -23,6 +23,7 @@
 			<tr>
 				<td>${usuario.getId()}</td>
 				<td>${usuario.getNomeCompleto()}</td>
+				<td>${usuario.getEndereco()}</td>
 				<td>${usuario.getCidade()}</td>
 				<td>${usuario.getUnidadeFederativa()}</td>
 				<td>${usuario.getCPF()}</td>

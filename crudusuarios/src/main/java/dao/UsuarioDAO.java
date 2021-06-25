@@ -16,7 +16,7 @@ public class UsuarioDAO {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/crudusuarios","root","root");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/crudusuarios","root","Pai.1958");
 		} catch(Exception e) {
 			System.out.println(e);
 		}
@@ -77,7 +77,7 @@ public class UsuarioDAO {
 		try {
 			Connection con = getConnection();
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement("update usuario set nomeCompleto=?,"
-					+ "endereco=?, cidade=?, unidadeFederativa=?, CPF=?, telefone=? where id=?");
+					+ " endereco=?, cidade=?, unidadeFederativa=?, CPF=?, telefone=? where id=?");
 			ps.setString(1, usuario.getNomeCompleto());
 			ps.setString(2, usuario.getEndereco());
 			ps.setString(3, usuario.getCidade());
@@ -85,6 +85,7 @@ public class UsuarioDAO {
 			ps.setString(5, usuario.getCPF());
 			ps.setString(6, usuario.getTelefone());
 			ps.setInt(7, usuario.getId());
+			
 			statusDaAlteracao = ps.executeUpdate();	
 		}catch(Exception e) {
 			System.out.println(e);
@@ -98,7 +99,7 @@ public class UsuarioDAO {
 			Connection con = getConnection();
 			PreparedStatement ps= (PreparedStatement) con.prepareStatement("insert into usuario"
 					+ "(nomeCompleto, endereco, cidade, unidadeFederativa, CPF, telefone)"
-					+ "values (?,?,?,?,?,?)");
+					+ " values (?,?,?,?,?,?)");
 			ps.setString(1, usuario.getNomeCompleto());
 			ps.setString(2, usuario.getEndereco());
 			ps.setString(3, usuario.getCidade());
@@ -112,4 +113,18 @@ public class UsuarioDAO {
 		return statusDaInclusao;
 	}
 	
+	public static int deleteUsuario(Usuario usuario) {
+		int statusDaExclusao = 0;
+		try {
+			Connection con = getConnection();
+			PreparedStatement ps= (PreparedStatement) con.prepareStatement("delete"
+					+ " from usuario where id=?");
+			ps.setInt(1, usuario.getId());
+			statusDaExclusao = ps.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return statusDaExclusao;
+		
+	}
 }

@@ -8,7 +8,6 @@
 </head>
 <body>
 	<p>Usuário incluso com sucesso!</p>
-	<jsp:include page="usuarioform.html"></jsp:include>
-	
+	<jsp:include page="verusuarios.jsp"></jsp:include>
 </body>
 </html>

@@ -15,11 +15,14 @@
 	
 	<h1>Edição do usuário</h1>
 	<form action="editarusuario.jsp" method="post">
-		<input type="text" name="id" value="<%=usuario.getId()%>">
 		<table>
 			<tr>
+				<td>Id:</td>
+				<td><input type="text" name="id" value="<%=usuario.getId()%>"></td>
+			</tr>
+			<tr>
 				<td>Nome:</td>
-				<td><input type="text" name="nome" value="<%=usuario.getNomeCompleto()%>"/></td>
+				<td><input type="text" name="nomeCompleto" value="<%=usuario.getNomeCompleto()%>"/></td>
 			</tr>
 			<tr>
 				<td>Endereço:</td>
@@ -31,11 +34,11 @@
 			</tr>
 			<tr>
 				<td>Unidade federativa:</td>
-				<td><input type="text" name="unidadefederativa" value="<%=usuario.getUnidadeFederativa()%>"/></td>
+				<td><input type="text" name="unidadeFederativa" value="<%=usuario.getUnidadeFederativa()%>"/></td>
 			</tr>
 			<tr>
 				<td>CPF:</td>
-				<td><input type="text" name="cpf" value="<%=usuario.getCPF()%>"/></td>
+				<td><input type="text" name="CPF" value="<%=usuario.getCPF()%>"/></td>
 			</tr>
 			<tr>
 				<td>Telefone:</td>
